@@ -1,0 +1,304 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Furniture.master.cs" Inherits="furniture_rent.pages.Furniture" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Furniture Rental</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/codebase.min-5.8.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+
+            <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
+                <aside id="side-overlay">
+                    <div class="content-header">
+                        <a class="img-link me-2" href="#">
+                            <asp:Image ImageUrl="assets/media/avatars/avatar15.jpg" class="img-avatar img-avatar32" runat="server" />
+                        </a>
+                        <a class="link-fx text-body-color-dark fw-semibold fs-sm" href="#">
+                            <asp:Label Text="" ID="cookie_name" runat="server" />
+                        </a>
+
+                        <button type="button" runat="server" class="btn btn-sm btn-alt-danger ms-auto" data-toggle="layout"
+                            data-action="side_overlay_close">
+                            <i class="fa fa-fw fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="content-side">
+
+                        <div class="block pull-x">
+                            <div class="block-header bg-body-light">
+                                <h3 class="block-title">
+                                    <i class="fa fa-fw fa-pencil-alt opacity-50 me-1"></i>
+                                    Profile
+            </h3>
+                                <div class="block-options">
+                                    <button type="button" class="btn-block-option" data-toggle="block-option"
+                                        data-action="content_toggle">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="block-content block-content-full">
+                                <div class="mb-3">
+                                    <label class="form-label" for="side-overlay-profile-name">Username</label>
+                                    <div class="input-group">
+                                        <asp:TextBox class="form-control" ID="sideprofilename"
+                                            name="side-overlay-profile-name" placeholder="Your name.." ReadOnly="true" runat="server" />
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="side-overlay-profile-email">Email</label>
+                                    <div class="input-group">
+
+                                        <asp:TextBox TextMode="Email" class="form-control" ID="sideoverlayprofileemail"
+                                            name="side-overlay-profile-email" placeholder="Your email.." ReadOnly="true" runat="server" />
+                                        <span class="input-group-text">
+                                            <i class="fa fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="side-overlay-profile-conatct">Contact Number</label>
+                                    <div class="input-group">
+
+                                        <asp:TextBox TextMode="Number" class="form-control" MaxLength="10" ID="sideoverlayprofilecontact"
+                                            name="side-overlay-profile-conatct" placeholder="Your Number.." runat="server" />
+                                        <span class="input-group-text">
+                                            <i class="fa fa-contact-card"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="side-overlay-profile-address">Address</label>
+                                    <div class="input-group">
+                                        <asp:TextBox class="form-control" ID="sideoverlayprofileaddress"
+                                            name="side-overlay-profile-address" placeholder="Your City" runat="server" />
+                                        <span class="input-group-text">
+                                            <i class="fa fa-address-book"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="side-overlay-profile-pincode">Pincode</label>
+                                    <div class="input-group">
+                                        <asp:TextBox TextMode="Number" class="form-control" ID="sideoverlayprofilepincode"
+                                            name="side-overlay-profile-pincode" placeholder="Your Pincode" runat="server" />
+                                        <span class="input-group-text">
+                                            <i class="fa fa-home"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <asp:Button class="btn btn-alt-primary" ID="updateBtn" OnClick="updateBtn_Click" Text="Update" runat="server" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+                <nav id="sidebar">
+                    <div class="sidebar-content">
+                        <div class="content-header justify-content-lg-center">
+                            <div>
+                                <%--<span class="smini-visible fw-bold tracking-wide fs-lg">c<span class="text-primary">b</span>
+                                </span>--%>
+                                <a class="link-fx fw-bold tracking-wide mx-auto" href="Dashboard.aspx">
+                                    <span class="smini-hidden">
+                                        <i class="fa fa-fire text-primary"></i>
+                                        <span class="fs-4 text-dual">furniture </span><span class="fs-4 text-primary">rental</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout"
+                                    data-action="sidebar_close">
+                                    <i class="fa fa-fw fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="js-sidebar-scroll">
+                            <div class="content-side content-side-user px-0 py-0">
+                                <div class="smini-visible-block animated fadeIn px-3">
+                                    <img class="img-avatar img-avatar32" src="assets/media/avatars/avatar15.jpg" alt="">
+                                </div>
+                                <div class="smini-hidden text-center mx-auto">
+                                    <a class="img-link" href="#">
+                                        <asp:Image class="img-avatar" ImageUrl="assets/media/avatars/avatar15.jpg" runat="server" />
+                                    </a>
+                                    <ul class="list-inline mt-3 mb-0">
+                                        <li class="list-inline-item">
+                                            <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="#">
+                                                <asp:Label Text="" ID="cookie_uname" runat="server" />
+                                            </a>
+                                        </li>
+
+                                        <li class="list-inline-item">
+
+                                            <asp:LinkButton ID="btnClose" runat="server" CssClass="link-fx text-dual" OnClick="btnClose_Click">
+                                                     <i class="fa fa-sign-out-alt"></i> 
+
+                                                </asp:LinkButton>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="content-side content-side-full">
+                                <ul class="nav-main">
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link active" href="dashboard.aspx">
+                                            <i class="nav-main-link-icon fa fa-house-user"></i>
+                                            <span class="nav-main-link-name">Dashboard</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="discover_list.aspx">
+                                            <i class="nav-main-link-icon fa fa-globe-asia"></i>
+                                            <span class="nav-main-link-name">Discover Furniture</span>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="my_furniture_list.aspx">
+                                            <i class="nav-main-link-icon fa fa-pencil-ruler"></i>
+                                            <span class="nav-main-link-name">My Furniture</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="AddFurniture.aspx">
+                                            <i class="nav-main-link-icon fa fa-edit"></i>
+                                            <span class="nav-main-link-name">Add Furniture</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="#">
+                                            <i class="nav-main-link-icon fa fa-list-alt"></i>
+                                            <span class="nav-main-link-name">Rental History</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <header id="page-header">
+                    <div class="content-header">
+                        <div class="space-x-1">
+                            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="sidebar_toggle">
+                                <i class="fa fa-fw fa-bars"></i>
+                            </button>
+
+
+                        </div>
+                        <div class="space-x-1">
+                            <div class="dropdown d-inline-block">
+                                <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user d-sm-none"></i>
+                                    <span class="d-none d-sm-inline-block fw-semibold">
+                                        <asp:Label Text="" ID="cookie_toogle" runat="server" />
+                                    </span>
+                                    <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
+                                    aria-labelledby="page-header-user-dropdown">
+                                    <div class="px-2 py-3 bg-body-light rounded-top">
+                                        <h5 class="h6 text-center mb-0">
+                                            <asp:Label Text="" ID="cookie_toogle_name" runat="server" />
+                                        </h5>
+                                    </div>
+                                    <div class="p-2">
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                                            href="be_pages_generic_profile.html">
+                                            <span>Profile</span>
+                                            <i class="fa fa-fw fa-user opacity-25"></i>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="be_pages_generic_inbox.html">
+                                            <span>Cart</span>
+                                            <i class="fa fa-fw fa-cart-plus opacity-25"></i>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                                            href="be_pages_generic_invoice.html">
+                                            <span>Invoices</span>
+                                            <i class="fa fa-fw fa-file opacity-25"></i>
+                                        </a>
+
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                                            href="op_auth_signin.html">
+                                            <span>Sign Out</span>
+                                            <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
+                                data-action="side_overlay_toggle">
+                                <i class="fa fa-fw fa-stream"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="page-header-search" class="overlay-header bg-body-extra-light">
+                        <div class="content-header">
+                            <form class="w-100" action="https://demo.pixelcave.com/codebase/be_pages_generic_search.html" method="POST">
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-secondary" data-toggle="layout" data-action="header_search_off">
+                                        <i class="fa fa-fw fa-times"></i>
+                                    </button>
+                                    <input type="text" class="form-control" placeholder="Search or hit ESC.." id="page-header-search-input"
+                                        name="page-header-search-input">
+                                    <button type="submit" class="btn btn-secondary">
+                                        <i class="fa fa-fw fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="page-header-loader" class="overlay-header bg-primary">
+                        <div class="content-header">
+                            <div class="w-100 text-center">
+                                <i class="far fa-sun fa-spin text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <main id="main-container">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+                <footer id="page-footer">
+                    <div class="content py-3">
+                        <div class="row fs-sm">
+                            <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                                <a class="fw-semibold" href="#" target="_blank">Furniture Rental</a>
+                                &copy; <span data-toggle="year-copy"></span>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <script src="assets/js/codebase.app.min-5.8.js"></script>
+
+
+        </div>
+    </form>
+</body>
+</html>
