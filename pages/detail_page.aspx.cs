@@ -62,15 +62,31 @@ namespace furniture_rent.pages
             }
             else
             {
-                var uid = Request.Cookies["login"].Values["uid"].ToString();
-                cmd = new SqlCommand("insert into CartMaster values(@fid,@uid,@time,@dt)", cn);
+                cmd = new SqlCommand("select * from CartMaster where fid=@fid", cn);
                 cmd.Parameters.AddWithValue("@fid", Request.QueryString["fid"]);
-                cmd.Parameters.AddWithValue("@uid", uid);
-                cmd.Parameters.AddWithValue("@time", rtime.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@dt", DateTime.Now.ToString());
-                cmd.ExecuteNonQuery();
-                Response.Write("<script>alert('Data Added Suceessfully!!')</script>");
-                email_send();
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    Response.Write("<script>alert('Data Already Exits!!')</script>");
+                }
+                else
+                {
+                    var uid = Request.Cookies["login"].Values["uid"].ToString();
+                    cmd = new SqlCommand("insert into CartMaster values(@fid,@uid,@time,@dt,@st)", cn);
+                    cmd.Parameters.AddWithValue("@fid", Request.QueryString["fid"]);
+                    cmd.Parameters.AddWithValue("@uid", uid);
+                    cmd.Parameters.AddWithValue("@time", rtime.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@dt", DateTime.Now.ToString());
+                    cmd.Parameters.AddWithValue("@st", "pending");
+
+                    cmd.ExecuteNonQuery();
+                    Response.Write("<script>alert('Data Added Suceessfully!!')</script>");
+                    email_send();
+                }
+
             }
 
 
@@ -99,7 +115,7 @@ namespace furniture_rent.pages
                 string smtpServer = "smtp.gmail.com";
                 int smtpPort = 587;
                 string smtpUsername = "rajanupadhyaydeveloper@gmail.com"; // Replace with your Gmail address
-                string smtpPassword = "********";   // Replace with your Gmail password
+                string smtpPassword = "zqge awja bazr qwgf";   // Replace with your Gmail password
 
                 // Create an SMTP client
                 using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))

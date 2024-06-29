@@ -26,7 +26,7 @@ namespace furniture_rent
         {
             var uid = Request.Cookies["login"].Values["uid"].ToString();
 
-            cmd = new SqlCommand("select * from Furniture_Master f join User_Master u on f.uid=u.uid where f.uid!=@id", cn);
+            cmd = new SqlCommand("select * from Furniture_Master f join User_Master u on f.uid=u.uid where f.uid!=@id and f.fstatus='Available'", cn);
             cmd.Parameters.AddWithValue("@id", uid);
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();

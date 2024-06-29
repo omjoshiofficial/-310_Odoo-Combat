@@ -62,7 +62,7 @@
 
                                     
                                     <td>
-                                        <asp:Button CssClass="btn btn-primary" Text="Add Cart" ID="cartBtn" OnClick="cartBtn_Click" runat="server" />
+                                        <asp:Button CssClass="btn btn-primary" Text="Make Order" ID="cartBtn" OnClick="cartBtn_Click" runat="server" />
                                     </td>
                                 </tr>
                             </tbody>

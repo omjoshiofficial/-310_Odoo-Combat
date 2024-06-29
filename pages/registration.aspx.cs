@@ -43,7 +43,7 @@ namespace furniture_rent.pages
             string smtpServer = "smtp.gmail.com";
             int smtpPort = 587;
             string smtpUsername = "rajanupadhyaydeveloper@gmail.com"; // Replace with your Gmail address
-            string smtpPassword = "***********";   // Replace with your Gmail password
+            string smtpPassword = "zqge awja bazr qwgf";   // Replace with your Gmail password
 
             // Create an SMTP client
             using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))

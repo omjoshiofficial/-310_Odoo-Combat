@@ -322,6 +322,7 @@
     <Content Include="pages\login.aspx" />
     <Content Include="pages\my_furniture_list.aspx" />
     <Content Include="pages\registration.aspx" />
+    <Content Include="pages\rental_history.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -411,6 +412,13 @@
     </Compile>
     <Compile Include="pages\registration.aspx.designer.cs">
       <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\rental_history.aspx.cs">
+      <DependentUpon>rental_history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\rental_history.aspx.designer.cs">
+      <DependentUpon>rental_history.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
